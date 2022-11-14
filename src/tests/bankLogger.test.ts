@@ -1,16 +1,26 @@
 import BankLogger from '../bankLogger'
 import getDate from '../getDate'
 
+const bankAccountMaker = (): BankAccount => {
+  return {
+    balance: 0,
+    history: [],
+    deposit (amount: number) {return},
+    withdraw (amount: number) {return},
+    get balanceHistory (): number[] {return []}
+  }
+}
+
 describe('BankLogger', () => {
   it('should return the header string', () => {
-    const account = new BankAccount();
+    const account = bankAccountMaker();
     const logger = new BankLogger(account);
     expect(logger.header).toContain('date || credit || debit || balance')
   })
   it('should return a list of deposits in expected format', () => {
     let currentDate = getDate();
 
-    const account = new BankAccount();
+    const account = bankAccountMaker()
     account.deposit(100);
     account.deposit(200);
     const logger = new BankLogger(account);
@@ -21,7 +31,7 @@ describe('BankLogger', () => {
   it('should return a list of deposits and withdrawals in expected format', () => {
     let currentDate = getDate();
 
-    const account = new BankAccount();
+    const account = bankAccountMaker()
     account.deposit(100);
     account.withdraw(50);
     account.deposit(200);
