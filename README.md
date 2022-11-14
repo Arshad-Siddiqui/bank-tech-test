@@ -101,4 +101,4 @@ The date function was abstracted away into its own method as Javascript has no b
 
 # Screenshot of running app
 
-[screenshot of image](running_app.png)
+![screenshot of image](running_app.png)
