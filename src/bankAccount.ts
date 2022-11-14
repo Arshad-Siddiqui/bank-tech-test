@@ -8,4 +8,8 @@ export default class BankAccount {
   deposit (amount: number) {
     this.balance += amount;
   }
+
+  withdraw (amount: number) {
+    this.balance -= amount;
+  }
 }
