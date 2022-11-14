@@ -6,7 +6,7 @@ describe('BankLogger', () => {
   it('should return the header string', () => {
     const account = new BankAccount();
     const logger = new BankLogger(account);
-    expect(logger.transactions).toBe('date || credit || debit || balance')
+    expect(logger.transactions).toContain('date || credit || debit || balance')
   })
   it('should return a list of deposits in expected format', () => {
     let currentDate = getDate();
