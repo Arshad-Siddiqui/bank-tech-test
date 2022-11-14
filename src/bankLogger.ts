@@ -3,7 +3,7 @@ import BankAccount from './bankAccount';
 export default class Banklogger {
   constructor(private account: BankAccount) {}
 
-  transactions(): string {
-    return ''
+  get transactions(): string {
+    return 'date || credit || debit || balance'
   }
 }
