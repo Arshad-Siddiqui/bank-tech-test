@@ -1,4 +1,5 @@
 import BankAccount from "./bankAccount";
+import bankHeader from "./bankHeader";
 import getDate from "./getDate";
 
 export default class Banklogger {
@@ -17,10 +18,6 @@ export default class Banklogger {
       }
     });
 
-    return `${this.header}\n${transactionArray.join("\n")}`;
-  }
-
-  private get header(): string {
-    return "date || credit || debit || balance";
+    return `${bankHeader()}\n${transactionArray.join("\n")}`;
   }
 }

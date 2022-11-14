@@ -1,14 +1,15 @@
 export default class BankAccount {
-  balance: number = 0;
   history: number[] = [];
 
+  get balance(): number {
+    return this.history.reduce((a, b) => a + b, 0);
+  }
+
   deposit(amount: number) {
-    this.balance += amount;
     this.history.push(amount);
   }
 
   withdraw(amount: number) {
-    this.balance -= amount;
     this.history.push(-amount);
   }
 
