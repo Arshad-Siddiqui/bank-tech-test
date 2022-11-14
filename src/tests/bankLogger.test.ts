@@ -1,5 +1,6 @@
 import BankLogger from '../bankLogger'
 import BankAccount from '../bankAccount'
+import getDate from '../getDate'
 
 describe('BankLogger', () => {
   it('should return the header string', () => {
@@ -8,7 +9,7 @@ describe('BankLogger', () => {
     expect(logger.transactions).toBe('date || credit || debit || balance')
   })
   it('should return a list of deposits in expected format', () => {
-    let currentDate = new Date().toISOString().split('T')[0];
+    let currentDate = getDate();
 
     const account = new BankAccount();
     account.deposit(100);
