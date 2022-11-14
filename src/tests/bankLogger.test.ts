@@ -1,5 +1,4 @@
 import BankLogger from '../bankLogger'
-import BankAccount from '../bankAccount'
 import getDate from '../getDate'
 
 describe('BankLogger', () => {
@@ -33,3 +32,11 @@ describe('BankLogger', () => {
     expect(logger.transactions).toContain(`${currentDate} || 200.00 || || 250.00`);
   });
 })
+
+interface BankAccount {
+  balance: number;
+  history: number[];
+  deposit(amount: number): void;
+  withdraw(amount: number): void;
+  get balanceHistory(): number[];
+}
