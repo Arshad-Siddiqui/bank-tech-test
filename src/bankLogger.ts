@@ -7,9 +7,13 @@ export default class Banklogger {
   get transactions(): string {
     let transactionArray = this.account.history.map((transaction, i) => {
       if (transaction > 0) {
-        return `${getDate()} || ${transaction.toFixed(2)} || || ${this.account.balanceHistory[i].toFixed(2)}`;
+        return `${getDate()} || ${transaction.toFixed(
+          2
+        )} || || ${this.account.balanceHistory[i].toFixed(2)}`;
       } else {
-        return `${getDate()} || || ${(-transaction).toFixed(2)} || ${this.account.balanceHistory[i].toFixed(2)}`;
+        return `${getDate()} || || ${(-transaction).toFixed(
+          2
+        )} || ${this.account.balanceHistory[i].toFixed(2)}`;
       }
     });
 
