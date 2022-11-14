@@ -19,7 +19,7 @@ describe("BankLogger", () => {
   it("should return the header string", () => {
     const account = bankAccountMaker();
     const logger = new BankLogger(account);
-    expect(logger.header).toContain("date || credit || debit || balance");
+    expect(logger.transactions).toContain("date || credit || debit || balance");
   });
   it("should return a list of deposits in expected format", () => {
     let currentDate = getDate();

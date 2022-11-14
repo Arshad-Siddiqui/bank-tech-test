@@ -20,7 +20,7 @@ export default class Banklogger {
     return `${this.header}\n${transactionArray.join("\n")}`;
   }
 
-  get header(): string {
+  private get header(): string {
     return "date || credit || debit || balance";
   }
 }
