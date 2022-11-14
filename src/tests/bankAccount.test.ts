@@ -24,4 +24,11 @@ describe('BankAccount', () => {
     account.withdraw(50);
     expect(account.history).toEqual([100, -50]);
   });
+  it('should store history of balances', () => {
+    const account = new BankAccount();
+    account.deposit(100);
+    account.withdraw(50);
+    account.deposit(200);
+    expect(account.balanceHistory).toEqual([100, 50, 250]);
+  });
 });

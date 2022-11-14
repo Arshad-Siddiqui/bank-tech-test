@@ -11,4 +11,14 @@ export default class BankAccount {
     this.balance -= amount;
     this.history.push(-amount);
   }
+
+  get balanceHistory (): number[] {
+    let balanceHistory: number[] = [];
+    let balance: number = 0;
+    this.history.forEach((transaction) => {
+      balance += transaction;
+      balanceHistory.push(balance);
+    });
+    return balanceHistory;
+  }
 }
