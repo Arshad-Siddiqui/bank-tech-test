@@ -12,13 +12,19 @@ class Banklogger {
     get transactions() {
         let transactionArray = this.account.history.map((transaction, i) => {
             if (transaction > 0) {
-                return `${(0, getDate_1.default)()} || ${transaction.toFixed(2)} || || ${this.account.balanceHistory[i].toFixed(2)}`;
+                return this.depositString(transaction, this.account.balanceHistory[i]);
             }
             else {
-                return `${(0, getDate_1.default)()} || || ${(-transaction).toFixed(2)} || ${this.account.balanceHistory[i].toFixed(2)}`;
+                return this.withdrawString(transaction, this.account.balanceHistory[i]);
             }
         });
         return `${(0, bankHeader_1.default)()}\n${transactionArray.join("\n")}`;
+    }
+    depositString(transactionAmmount, balance) {
+        return `${(0, getDate_1.default)()} || ${transactionAmmount.toFixed(2)} || || ${balance.toFixed(2)}`;
+    }
+    withdrawString(transactionAmmount, balance) {
+        return `${(0, getDate_1.default)()} || || ${(-transactionAmmount).toFixed(2)} || ${balance.toFixed(2)}`;
     }
 }
 exports.default = Banklogger;
