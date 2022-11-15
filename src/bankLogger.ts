@@ -8,16 +8,24 @@ export default class Banklogger {
   get transactions(): string {
     let transactionArray = this.account.history.map((transaction, i) => {
       if (transaction > 0) {
-        return `${getDate()} || ${transaction.toFixed(
-          2
-        )} || || ${this.account.balanceHistory[i].toFixed(2)}`;
+        return this.depositString(transaction, this.account.balanceHistory[i]);
       } else {
-        return `${getDate()} || || ${(-transaction).toFixed(
-          2
-        )} || ${this.account.balanceHistory[i].toFixed(2)}`;
+        return this.withdrawString(transaction, this.account.balanceHistory[i]);
       }
     });
 
     return `${bankHeader()}\n${transactionArray.join("\n")}`;
+  }
+
+  private depositString(transactionAmmount: number, balance: number): string {
+    return `${getDate()} || ${transactionAmmount.toFixed(
+      2
+    )} || || ${balance.toFixed(2)}`;
+  }
+
+  private withdrawString(transactionAmmount: number, balance: number): string {
+    return `${getDate()} || || ${(-transactionAmmount).toFixed(
+      2
+    )} || ${balance.toFixed(2)}`;
   }
 }
