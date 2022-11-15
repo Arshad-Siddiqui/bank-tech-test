@@ -102,3 +102,12 @@ The date function was abstracted away into its own method as Javascript has no b
 # Screenshot of running app
 
 ![screenshot of image](running_app.png)
+
+# How to run tests
+
+- The package.json file was configured to allow testing using the 'npm run test' command.
+- The command can be ran in any of the project directories.
+
+```shell
+  npm run test;
+```
