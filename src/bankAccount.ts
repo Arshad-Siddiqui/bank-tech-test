@@ -14,12 +14,10 @@ export default class BankAccount {
   }
 
   get balanceHistory(): number[] {
-    let balanceHistory: number[] = [];
     let balance: number = 0;
-    this.history.forEach((transaction) => {
+    return this.history.map((transaction) => {
       balance += transaction;
-      balanceHistory.push(balance);
+      return balance
     });
-    return balanceHistory;
   }
 }
