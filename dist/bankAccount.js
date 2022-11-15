@@ -2,25 +2,23 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 class BankAccount {
     constructor() {
-        this.balance = 0;
         this.history = [];
     }
+    get balance() {
+        return this.history.reduce((a, b) => a + b, 0);
+    }
     deposit(amount) {
-        this.balance += amount;
         this.history.push(amount);
     }
     withdraw(amount) {
-        this.balance -= amount;
         this.history.push(-amount);
     }
     get balanceHistory() {
-        let balanceHistory = [];
         let balance = 0;
-        this.history.forEach((transaction) => {
+        return this.history.map((transaction) => {
             balance += transaction;
-            balanceHistory.push(balance);
+            return balance;
         });
-        return balanceHistory;
     }
 }
 exports.default = BankAccount;
