@@ -1,6 +1,5 @@
 import BankAccount from "./bankAccount";
 import bankHeader from "./bankHeader";
-import getDate from "./getDate";
 
 export default class Banklogger {
   constructor(
