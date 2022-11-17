@@ -57,6 +57,15 @@ describe("BankLogger", () => {
       `${currentDate} || 200.00 || || 250.00`
     );
   });
+  describe('log', () => {
+    it('should log the transactions', () => {
+      const account = bankAccountMaker();
+      const logger = new BankLogger(account, getDate);
+      const spy = jest.spyOn(console, 'log');
+      logger.log();
+      expect(spy).toHaveBeenCalledWith(logger.transactions);
+    })
+  })
 });
 
 interface BankAccount {
