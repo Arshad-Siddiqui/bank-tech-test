@@ -1,16 +1,18 @@
 # Instructions for installation and running the app
 ## Installing everything
-1. Clone/Fork repository
+1. Clone/Fork repository.
 2. run NPM install in the root of the repository.
+3. Run tsc command to ensure you have the latest distribution files.
 
 ```javascript
 git clone <repository-address>
 npm install
+tsc
 ```
 
 ## Running the App
 
-1. Open the NODE REPL
+1. Open the NODE REPL.
 2. Import both modules to the REPL. (From dist, as you are unable to import the raw TS files.)
 3. Extract both classes from the modules.
 4. Create BankAccount class.
@@ -20,7 +22,7 @@ npm install
 node
 ```
 
-- Copy and paste the entire code block below and then press enter to quickly setup the environment
+- Copy and paste the entire code block below and then press enter to quickly setup the environment.
 
 ```javascript
 // in the node REPL import both modules
