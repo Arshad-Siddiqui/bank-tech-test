@@ -4,10 +4,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const bankHeader_1 = __importDefault(require("./bankHeader"));
-const getDate_1 = __importDefault(require("./getDate"));
 class Banklogger {
-    constructor(account) {
+    constructor(account, getDate) {
         this.account = account;
+        this.getDate = getDate;
     }
     get transactions() {
         let transactionArray = this.account.history.map((transaction, i) => {
@@ -21,10 +21,10 @@ class Banklogger {
         return `${(0, bankHeader_1.default)()}\n${transactionArray.join("\n")}`;
     }
     depositString(transactionAmmount, balance) {
-        return `${(0, getDate_1.default)()} || ${transactionAmmount.toFixed(2)} || || ${balance.toFixed(2)}`;
+        return `${this.getDate()} || ${transactionAmmount.toFixed(2)} || || ${balance.toFixed(2)}`;
     }
     withdrawString(transactionAmmount, balance) {
-        return `${(0, getDate_1.default)()} || || ${(-transactionAmmount).toFixed(2)} || ${balance.toFixed(2)}`;
+        return `${this.getDate()} || || ${(-transactionAmmount).toFixed(2)} || ${balance.toFixed(2)}`;
     }
 }
 exports.default = Banklogger;

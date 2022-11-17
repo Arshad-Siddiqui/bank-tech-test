@@ -26,14 +26,16 @@ node
 // in the node REPL import both modules
 const BankAccountModule = await import('./dist/bankAccount.js');
 const BankLoggerModule = await import('./dist/bankLogger.js');
+const getDateModule = await import('./dist/getDate.js');
 
 // Then save both the classes from the modules into their own variables
 const BankAccount = BankAccountModule.default.default;
 const BankLogger = BankLoggerModule.default.default;
+const getDate = getDateModule.default.default;
 
 // Then create instances of each class
 const bankAccount = new BankAccount();
-const bankLogger = new BankLogger(bankAccount);
+const bankLogger = new BankLogger(bankAccount, getDate);
 
 ```
 
