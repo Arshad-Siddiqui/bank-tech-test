@@ -1,5 +1,8 @@
 import BankLogger from "../bankLogger";
-import getDate from "../getDate";
+
+function getDate () {
+  return '12/12/12';
+}
 
 const bankAccountMaker = (): BankAccount => {
   return {
@@ -32,10 +35,10 @@ describe("BankLogger", () => {
     const logger = new BankLogger(account, getDate);
     expect(logger.transactions).toContain("date || credit || debit || balance");
     expect(logger.transactions).toContain(
-      `${currentDate} || 100.00 || || 100.00`
+      `12/12/12 || 100.00 || || 100.00`
     );
     expect(logger.transactions).toContain(
-      `${currentDate} || 200.00 || || 300.00`
+      `12/12/12 || 200.00 || || 300.00`
     );
   });
 
@@ -48,13 +51,13 @@ describe("BankLogger", () => {
     const logger = new BankLogger(account, getDate);
     expect(logger.transactions).toContain("date || credit || debit || balance");
     expect(logger.transactions).toContain(
-      `${currentDate} || 100.00 || || 100.00`
+      `12/12/12 || 100.00 || || 100.00`
     );
     expect(logger.transactions).toContain(
-      `${currentDate} || || 50.00 || 50.00`
+      `12/12/12 || || 50.00 || 50.00`
     );
     expect(logger.transactions).toContain(
-      `${currentDate} || 200.00 || || 250.00`
+      `12/12/12 || 200.00 || || 250.00`
     );
   });
   describe('log', () => {
