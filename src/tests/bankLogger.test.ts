@@ -18,7 +18,7 @@ const bankAccountMaker = (): BankAccount => {
 describe("BankLogger", () => {
   it("should return the header string", () => {
     const account = bankAccountMaker();
-    const logger = new BankLogger(account);
+    const logger = new BankLogger(account, getDate);
     expect(logger.transactions).toContain("date || credit || debit || balance");
   });
   it("should return a list of deposits in expected format", () => {
@@ -29,7 +29,7 @@ describe("BankLogger", () => {
     account.history = [100, 200];
     account.balanceHistory = [100, 300];
 
-    const logger = new BankLogger(account);
+    const logger = new BankLogger(account, getDate);
     expect(logger.transactions).toContain("date || credit || debit || balance");
     expect(logger.transactions).toContain(
       `${currentDate} || 100.00 || || 100.00`
@@ -45,7 +45,7 @@ describe("BankLogger", () => {
     const account = bankAccountMaker();
     account.history = [100, -50, 200];
     account.balanceHistory = [100, 50, 250];
-    const logger = new BankLogger(account);
+    const logger = new BankLogger(account, getDate);
     expect(logger.transactions).toContain("date || credit || debit || balance");
     expect(logger.transactions).toContain(
       `${currentDate} || 100.00 || || 100.00`

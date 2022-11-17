@@ -3,7 +3,10 @@ import bankHeader from "./bankHeader";
 import getDate from "./getDate";
 
 export default class Banklogger {
-  constructor(private account: BankAccount) {}
+  constructor(
+    private account: BankAccount,
+    private getDate: Function
+    ) {}
 
   get transactions(): string {
     let transactionArray = this.account.history.map((transaction, i) => {
@@ -18,13 +21,13 @@ export default class Banklogger {
   }
 
   private depositString(transactionAmmount: number, balance: number): string {
-    return `${getDate()} || ${transactionAmmount.toFixed(
+    return `${this.getDate()} || ${transactionAmmount.toFixed(
       2
     )} || || ${balance.toFixed(2)}`;
   }
 
   private withdrawString(transactionAmmount: number, balance: number): string {
-    return `${getDate()} || || ${(-transactionAmmount).toFixed(
+    return `${this.getDate()} || || ${(-transactionAmmount).toFixed(
       2
     )} || ${balance.toFixed(2)}`;
   }
