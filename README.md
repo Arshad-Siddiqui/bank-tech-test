@@ -121,3 +121,8 @@ The date function was abstracted away into its own method as Javascript has no b
 ```shell
   npm run test;
 ```
+
+## Notes on testing
+
+- 100% branch coverage may not be achieved in the dist folder due to how the code is compiled.
+- The tests written in Typescript reach 100% coverage however.
