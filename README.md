@@ -103,11 +103,11 @@ const bankLogger = new BankLogger(bankAccount, getDate);
 
 # Reason for structuring this way
 
-The logic is split between two classes and a method. The first class holds the internal logic of how a bank account operates. It takes and stores inputs such as deposits/withdrawals into a number array as well as stores the balance. The balance history can also be returned form this class.
+The logic is split between two classes and 2 methods. The first class holds the internal logic of how a bank account operates. It takes and stores inputs such as deposits/withdrawals into a number array as well as stores the balance. The balance history can also be returned form this class.
 
 The second class' purpose is to format the output of the first class. It returns the data in a table like format showing the current date, whether money entered or left the account, and the balance at that time.
 
-The date function was abstracted away into its own method as Javascript has no built in way of producing it without some processing.
+The date function was abstracted away into its own method as Javascript has no built in way of producing it without some processing. The second method's purpose is to return the header for the table. This was branched off to allow for easy modification as well as simplify future testing for the BankLogger class.
 
 # Screenshot of running app
 
