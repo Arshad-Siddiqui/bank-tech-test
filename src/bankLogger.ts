@@ -31,4 +31,8 @@ export default class Banklogger {
       2
     )} || ${balance.toFixed(2)}`;
   }
+
+  log() {
+    console.log(this.transactions);
+  }
 }

@@ -93,6 +93,14 @@ const bankLogger = new BankLogger(bankAccount, getDate);
   console.log(bankLogger.transactions);
 ```
 
+### log
+
+- Alternatively call this method which logs the output of the transactions method to the console.
+
+```javascript
+  bankLogger.log();
+```
+
 # Reason for structuring this way
 
 The logic is split between two classes and a method. The first class holds the internal logic of how a bank account operates. It takes and stores inputs such as deposits/withdrawals into a number array as well as stores the balance. The balance history can also be returned form this class.
