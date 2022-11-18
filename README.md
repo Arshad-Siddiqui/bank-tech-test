@@ -1,9 +1,9 @@
 # Instructions for installation and running the app
 ## Installing everything
 1. Clone/Fork repository.
-2. run NPM install in the root of the repository.
+2. Run NPM install in the root of the repository.
 3. Run npx tsc command to ensure you have the latest distribution files.
-note: typescript was added as a dev dependency to the project.
+note: Typescript was added as a dev dependency to the project.
 
 ```javascript
 git clone <repository-address>
