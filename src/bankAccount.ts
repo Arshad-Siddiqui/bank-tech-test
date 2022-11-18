@@ -2,7 +2,7 @@ export default class BankAccount {
   history: number[] = [];
 
   get balance(): number {
-    return this.history.reduce((a, b) => a + b, 0);
+    return this.balanceHistory[this.balanceHistory.length - 1];
   }
 
   deposit(amount: number) {
