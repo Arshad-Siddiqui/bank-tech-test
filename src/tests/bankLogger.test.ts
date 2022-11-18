@@ -28,6 +28,9 @@ describe("BankLogger", () => {
     let currentDate = getDate();
 
     const account = bankAccountMaker();
+    // balance refers to current balance.
+    // history refers to the transaction history.
+    // balanceHistory refers to the balance history.
     account.balance = 300;
     account.history = [100, 200];
     account.balanceHistory = [100, 300];
