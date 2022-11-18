@@ -25,8 +25,6 @@ describe("BankLogger", () => {
     expect(logger.transactions).toContain("date || credit || debit || balance");
   });
   it("should return a list of deposits in expected format", () => {
-    let currentDate = getDate();
-
     const account = bankAccountMaker();
     // balance refers to current balance.
     // history refers to the transaction history.
@@ -46,8 +44,6 @@ describe("BankLogger", () => {
   });
 
   it("should return a list of deposits and withdrawals in expected format", () => {
-    let currentDate = getDate();
-
     const account = bankAccountMaker();
     account.history = [100, -50, 200];
     account.balanceHistory = [100, 50, 250];
