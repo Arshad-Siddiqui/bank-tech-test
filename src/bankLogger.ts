@@ -1,6 +1,4 @@
 import BankAccount from "./bankAccount";
-import bankHeader from "./bankHeader";
-
 export default class Banklogger {
   constructor(
     private account: BankAccount,
@@ -16,7 +14,7 @@ export default class Banklogger {
       }
     });
 
-    return `${bankHeader()}\n${transactionArray.join("\n")}`;
+    return `${this.header()}\n${transactionArray.join("\n")}`;
   }
 
   private depositString(transactionAmmount: number, balance: number): string {
@@ -29,6 +27,10 @@ export default class Banklogger {
     return `${this.getDate()} || || ${(-transactionAmmount).toFixed(
       2
     )} || ${balance.toFixed(2)}`;
+  }
+
+  private header(): string {
+    return "date || credit || debit || balance";
   }
 
   log() {
