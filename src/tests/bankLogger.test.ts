@@ -14,12 +14,9 @@ describe("BankLogger", () => {
   });
   it("should return a list of deposits in expected format", () => {
     const account = new BankAccount();
-    // balance refers to current balance.
-    // history refers to the transaction history.
-    // balanceHistory refers to the balance history.
-    account.balance = 300;
-    account.history = [100, 200];
-    account.balanceHistory = [100, 300];
+
+    account.deposit(100);
+    account.deposit(200);
 
     const logger = new BankLogger(account);
     expect(logger.transactions).toContain("date || credit || debit || balance");
@@ -32,9 +29,11 @@ describe("BankLogger", () => {
   });
 
   it("should return a list of deposits and withdrawals in expected format", () => {
-    const account = bankAccountMaker();
-    account.history = [100, -50, 200];
-    account.balanceHistory = [100, 50, 250];
+    const account = new BankAccount();
+    account.deposit(100);
+    account.withdraw(50);
+    account.deposit(200);
+
     const logger = new BankLogger(account);
     expect(logger.transactions).toContain("date || credit || debit || balance");
     expect(logger.transactions).toContain(
@@ -49,7 +48,7 @@ describe("BankLogger", () => {
   });
   describe('log', () => {
     it('should log the transactions', () => {
-      const account = bankAccountMaker();
+      const account = new BankAccount();
       const logger = new BankLogger(account);
       const spy = jest.spyOn(console, 'log');
       logger.log();
@@ -57,11 +56,3 @@ describe("BankLogger", () => {
     })
   })
 });
-
-interface BankAccount {
-  balance: number;
-  history: number[];
-  deposit(amount: number): void;
-  withdraw(amount: number): void;
-  balanceHistory: number[];
-}
