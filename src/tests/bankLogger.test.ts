@@ -2,6 +2,10 @@ import BankLogger from "../bankLogger";
 
 import BankAccount from "../bankAccount";
 
+jest
+  .useFakeTimers()
+  .setSystemTime(new Date('2012-12-12'));
+
 describe("BankLogger", () => {
   it("should return the header string", () => {
     const account = new BankAccount();
