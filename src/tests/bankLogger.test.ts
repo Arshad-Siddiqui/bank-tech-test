@@ -4,28 +4,16 @@ function getDate () {
   return '12/12/12';
 }
 
-const bankAccountMaker = (): BankAccount => {
-  return {
-    balance: 0,
-    history: [],
-    balanceHistory: [],
-    deposit(amount: number) {
-      return;
-    },
-    withdraw(amount: number) {
-      return;
-    },
-  };
-};
+import BankAccount from "../bankAccount";
 
 describe("BankLogger", () => {
   it("should return the header string", () => {
-    const account = bankAccountMaker();
-    const logger = new BankLogger(account, getDate);
+    const account = new BankAccount();
+    const logger = new BankLogger(account);
     expect(logger.transactions).toContain("date || credit || debit || balance");
   });
   it("should return a list of deposits in expected format", () => {
-    const account = bankAccountMaker();
+    const account = new BankAccount();
     // balance refers to current balance.
     // history refers to the transaction history.
     // balanceHistory refers to the balance history.
@@ -33,7 +21,7 @@ describe("BankLogger", () => {
     account.history = [100, 200];
     account.balanceHistory = [100, 300];
 
-    const logger = new BankLogger(account, getDate);
+    const logger = new BankLogger(account);
     expect(logger.transactions).toContain("date || credit || debit || balance");
     expect(logger.transactions).toContain(
       `12/12/12 || 100.00 || || 100.00`
@@ -47,7 +35,7 @@ describe("BankLogger", () => {
     const account = bankAccountMaker();
     account.history = [100, -50, 200];
     account.balanceHistory = [100, 50, 250];
-    const logger = new BankLogger(account, getDate);
+    const logger = new BankLogger(account);
     expect(logger.transactions).toContain("date || credit || debit || balance");
     expect(logger.transactions).toContain(
       `12/12/12 || 100.00 || || 100.00`
@@ -62,7 +50,7 @@ describe("BankLogger", () => {
   describe('log', () => {
     it('should log the transactions', () => {
       const account = bankAccountMaker();
-      const logger = new BankLogger(account, getDate);
+      const logger = new BankLogger(account);
       const spy = jest.spyOn(console, 'log');
       logger.log();
       expect(spy).toHaveBeenCalledWith(logger.transactions);
