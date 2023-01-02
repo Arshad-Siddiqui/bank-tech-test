@@ -10,7 +10,6 @@ git clone <repository-address>
 npm install
 npx tsc
 ```
-
 ## Running the App
 
 1. Open the NODE REPL.

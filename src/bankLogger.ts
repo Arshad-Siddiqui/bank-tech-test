@@ -2,7 +2,6 @@ import BankAccount from "./bankAccount";
 export default class Banklogger {
   constructor(
     private account: BankAccount,
-    private getDate: Function
     ) {}
 
   get transactions(): string {
@@ -17,14 +16,14 @@ export default class Banklogger {
     return `${this.header()}\n${transactionArray.join("\n")}`;
   }
 
-  private depositString(transactionAmmount: number, balance: number): string {
-    return `${this.getDate()} || ${transactionAmmount.toFixed(
+  private depositString(transactionAmount: number, balance: number): string {
+    return `${this.getDate()} || ${transactionAmount.toFixed(
       2
     )} || || ${balance.toFixed(2)}`;
   }
 
-  private withdrawString(transactionAmmount: number, balance: number): string {
-    return `${this.getDate()} || || ${(-transactionAmmount).toFixed(
+  private withdrawString(transactionAmount: number, balance: number): string {
+    return `${this.getDate()} || || ${(-transactionAmount).toFixed(
       2
     )} || ${balance.toFixed(2)}`;
   }
@@ -35,5 +34,9 @@ export default class Banklogger {
 
   log() {
     console.log(this.transactions);
+  }
+
+  getDate () {
+    return new Date().toLocaleDateString();
   }
 }
