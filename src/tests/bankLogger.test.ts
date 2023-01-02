@@ -1,9 +1,5 @@
 import BankLogger from "../bankLogger";
 
-function getDate () {
-  return '12/12/12';
-}
-
 import BankAccount from "../bankAccount";
 
 describe("BankLogger", () => {
