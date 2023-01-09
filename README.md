@@ -1,4 +1,7 @@
-# Instructions for installation and running the app
+# Bank Tech Test
+
+This is a tech test meant to simulate a bank account as well as display account history in a formatted string. It utilises Typescript, Jest and runs in Node as a command line application.
+
 ## Installing everything
 1. Clone/Fork repository.
 2. Run NPM install in the root of the repository.
