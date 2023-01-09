@@ -25,7 +25,7 @@ node
 - Copy and paste the entire code block below and then press enter to quickly setup the environment.
 
 ```javascript
-// in the node REPL import both modules
+// In the node REPL import both modules
 const BankAccountModule = await import('./dist/bankAccount.js');
 const BankLoggerModule = await import('./dist/bankLogger.js');
 const getDateModule = await import('./dist/getDate.js');
