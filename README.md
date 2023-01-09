@@ -131,3 +131,7 @@ The date function was abstracted away into its own method as Javascript has no b
 
 - 100% branch coverage may not be achieved in the dist folder due to how the code is compiled.
 - The tests written in Typescript reach 100% coverage however.
+
+## Known issues
+
+- The logger is responsible for displaying date so displays today's date as opposed to the one when the transaction happened. Date should instead be stored on each transaction so a transaction class/data-type should be created.
